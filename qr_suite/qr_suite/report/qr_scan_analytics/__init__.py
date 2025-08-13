@@ -1,0 +1,1 @@
+# QR Scan Analytics init file

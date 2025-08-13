@@ -1,0 +1,28 @@
+{% extends "templates/web.html" %}
+
+{% block title %}QR Code Scanner{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    {% if error %}
+                        <div class="alert alert-danger">
+                            <h4><i class="fa fa-exclamation-triangle"></i> QR Code Error</h4>
+                            <p>{{ error }}</p>
+                        </div>
+                        <a href="/app" class="btn btn-primary">Return to App</a>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <h4><i class="fa fa-qrcode"></i> Processing QR Code</h4>
+                            <p>Please wait while we redirect you...</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

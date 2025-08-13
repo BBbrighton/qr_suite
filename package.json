@@ -1,0 +1,26 @@
+{
+  "name": "qr_suite",
+  "version": "1.0.0",
+  "description": "Comprehensive QR Code management for ERPNext workflows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/qr_suite.git"
+  },
+  "keywords": [
+    "frappe",
+    "erpnext",
+    "qr-code",
+    "barcode",
+    "tracking"
+  ],
+  "author": "Brighton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/qr_suite/issues"
+  },
+  "homepage": "https://github.com/your-username/qr_suite#readme"
+}

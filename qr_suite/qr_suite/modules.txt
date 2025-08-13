@@ -1,0 +1,5 @@
+QR Template
+QR Link
+QR Scan Log
+QR Settings
+QR Settings Detail

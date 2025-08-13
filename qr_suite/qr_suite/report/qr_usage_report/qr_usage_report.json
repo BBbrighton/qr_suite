@@ -1,0 +1,28 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2025-01-09 15:00:00.000000",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "doctype": "Report",
+ "filters": [],
+ "is_standard": "Yes",
+ "modified": "2025-01-09 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QR Suite",
+ "name": "QR Usage Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \n    target_doctype as \"DocType:Link:200\",\n    target_name as \"Document:Dynamic Link:200\",\n    qr_type as \"QR Type:Data:120\",\n    status as \"Status:Data:100\",\n    scan_count as \"Scans:Int:80\",\n    created_on as \"Created:Datetime:150\",\n    last_scanned as \"Last Scan:Datetime:150\"\nFROM `tabQR Link`\nORDER BY scan_count DESC, created_on DESC",
+ "ref_doctype": "QR Link",
+ "report_name": "QR Usage Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "QR Manager"
+  }
+ ]
+}

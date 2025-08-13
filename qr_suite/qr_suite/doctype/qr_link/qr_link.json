@@ -1,0 +1,348 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-01-09 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "qr_type",
+  "column_break_basic",
+  "qr_template",
+  "status",
+  "target_section",
+  "target_doctype",
+  "target_name",
+  "column_break_target",
+  "action",
+  "url_mode",
+  "qr_configuration_section",
+  "qr_content",
+  "expires_on",
+  "column_break_config",
+  "custom_url_prefix",
+  "extra_params",
+  "qr_appearance_section",
+  "include_label",
+  "label_text",
+  "column_break_appearance",
+  "qr_url",
+  "token",
+  "qr_image_section",
+  "qr_code_image",
+  "column_break_image",
+  "file_size",
+  "created_on",
+  "usage_section",
+  "scan_count",
+  "last_scanned",
+  "column_break_usage",
+  "last_scanned_by",
+  "last_scan_ip",
+  "hidden_section",
+  "qr_code_base64"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "QRL-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "default": "Document QR",
+   "fieldname": "qr_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "QR Type",
+   "options": "Document QR\nValue QR",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Select a template to auto-fill settings",
+   "fieldname": "qr_template",
+   "fieldtype": "Link",
+   "label": "QR Template",
+   "options": "QR Template"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nExpired\nRevoked\nInactive",
+   "read_only_depends_on": "eval:!doc.__islocal"
+  },
+  {
+   "fieldname": "target_section",
+   "fieldtype": "Section Break",
+   "label": "Target Document"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Target Document",
+   "options": "target_doctype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_target",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "view",
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "label": "Action",
+   "mandatory_depends_on": "eval:doc.qr_type == 'Document QR'",
+   "options": "view\nedit\nprint\nemail\nnew_stock_entry\nmaintenance_log\nasset_repair\nstock_balance\nview_ledger\nnew_delivery_note\nnew_sales_invoice\nnew_purchase_receipt"
+  },
+  {
+   "default": "token",
+   "description": "Token: Secure URL with token. Direct: Full URL in QR",
+   "fieldname": "url_mode",
+   "fieldtype": "Select",
+   "label": "URL Mode",
+   "options": "token\ndirect"
+  },
+  {
+   "fieldname": "qr_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "QR Configuration"
+  },
+  {
+   "description": "The actual data encoded in the QR code (for Value QR)",
+   "fieldname": "qr_content",
+   "fieldtype": "Small Text",
+   "label": "QR Content",
+   "mandatory_depends_on": "eval:doc.qr_type == 'Value QR'"
+  },
+  {
+   "description": "Token expiry date (leave empty for no expiry)",
+   "fieldname": "expires_on",
+   "fieldtype": "Datetime",
+   "label": "Expires On"
+  },
+  {
+   "fieldname": "column_break_config",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Custom domain/prefix (e.g., https://example.com)",
+   "fieldname": "custom_url_prefix",
+   "fieldtype": "Data",
+   "label": "Custom URL Prefix"
+  },
+  {
+   "description": "Additional URL parameters in JSON format (e.g., {\"ref\": \"qr\"})",
+   "fieldname": "extra_params",
+   "fieldtype": "Small Text",
+   "label": "Extra Parameters"
+  },
+  {
+   "fieldname": "qr_appearance_section",
+   "fieldtype": "Section Break",
+   "label": "QR Appearance"
+  },
+  {
+   "default": "1",
+   "fieldname": "include_label",
+   "fieldtype": "Check",
+   "label": "Include Label"
+  },
+  {
+   "fieldname": "label_text",
+   "fieldtype": "Data",
+   "label": "Label Text"
+  },
+  {
+   "fieldname": "column_break_appearance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Generated URL that QR code points to",
+   "fieldname": "qr_url",
+   "fieldtype": "Data",
+   "label": "QR URL",
+   "read_only": 1
+  },
+  {
+   "description": "Unique token for secure access",
+   "fieldname": "token",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Token",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qr_image_section",
+   "fieldtype": "Section Break",
+   "label": "QR Code Image"
+  },
+  {
+   "fieldname": "qr_code_image",
+   "fieldtype": "Attach Image",
+   "label": "QR Code Image"
+  },
+  {
+   "fieldname": "column_break_image",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "file_size",
+   "fieldtype": "Data",
+   "label": "File Size",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Created On",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "usage_section",
+   "fieldtype": "Section Break",
+   "label": "Usage Statistics"
+  },
+  {
+   "default": "0",
+   "fieldname": "scan_count",
+   "fieldtype": "Int",
+   "label": "Scan Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_scanned",
+   "fieldtype": "Datetime",
+   "label": "Last Scanned",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_usage",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_scanned_by",
+   "fieldtype": "Link",
+   "label": "Last Scanned By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_scan_ip",
+   "fieldtype": "Data",
+   "label": "Last Scan IP",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hidden_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "qr_code_base64",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "QR Code Base64",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-13 23:27:05.176957",
+ "modified_by": "Administrator",
+ "module": "QR Suite",
+ "name": "QR Link",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "target_name",
+ "track_changes": 1
+}

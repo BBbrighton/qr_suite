@@ -1,0 +1,1 @@
+# QR Usage Report init file

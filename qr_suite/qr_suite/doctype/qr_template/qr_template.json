@@ -1,0 +1,204 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:template_name",
+ "creation": "2025-01-09 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "description",
+  "is_active",
+  "column_break_3",
+  "qr_type",
+  "target_doctype",
+  "value_field",
+  "section_break_7",
+  "default_action",
+  "url_mode",
+  "token_expiry_days",
+  "column_break_11",
+  "custom_url_prefix",
+  "extra_params",
+  "qr_settings_section",
+  "qr_size",
+  "error_correction",
+  "column_break_16",
+  "image_format",
+  "include_readable_text"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Document QR",
+   "fieldname": "qr_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "QR Type",
+   "options": "Document QR\nValue QR",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "label": "Target DocType",
+   "mandatory_depends_on": "eval:doc.qr_type == 'Document QR' || doc.qr_type == 'Value QR'",
+   "options": "DocType"
+  },
+  {
+   "depends_on": "eval:doc.qr_type == 'Value QR'",
+   "fieldname": "value_field",
+   "fieldtype": "Data",
+   "label": "Value Field",
+   "description": "Field name to encode (e.g., 'name', 'item_code', 'serial_no')",
+   "mandatory_depends_on": "eval:doc.qr_type == 'Value QR'"
+  },
+  {
+   "depends_on": "eval:doc.qr_type == 'Document QR'",
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Document QR Settings"
+  },
+  {
+   "default": "open_doc",
+   "depends_on": "eval:doc.qr_type == 'Document QR'",
+   "fieldname": "default_action",
+   "fieldtype": "Select",
+   "label": "Default Action",
+   "options": "open_doc\nmaintenance_log\nasset_repair\nstock_balance\nnew_stock_entry\nview_ledger"
+  },
+  {
+   "default": "token",
+   "depends_on": "eval:doc.qr_type == 'Document QR'",
+   "fieldname": "url_mode",
+   "fieldtype": "Select",
+   "label": "URL Mode",
+   "options": "direct\ntoken",
+   "description": "Direct: QR contains full URL. Token: QR contains token for security"
+  },
+  {
+   "default": 30,
+   "depends_on": "eval:doc.qr_type == 'Document QR' && doc.url_mode == 'token'",
+   "fieldname": "token_expiry_days",
+   "fieldtype": "Int",
+   "label": "Token Expiry (Days)",
+   "description": "0 for no expiry"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.qr_type == 'Document QR' && doc.url_mode == 'direct'",
+   "fieldname": "custom_url_prefix",
+   "fieldtype": "Data",
+   "label": "Custom URL Prefix",
+   "description": "Optional custom URL prefix instead of site URL"
+  },
+  {
+   "depends_on": "eval:doc.qr_type == 'Document QR'",
+   "fieldname": "extra_params",
+   "fieldtype": "Small Text",
+   "label": "Extra Params",
+   "description": "Additional parameters to pass in URL (JSON format)"
+  },
+  {
+   "fieldname": "qr_settings_section",
+   "fieldtype": "Section Break",
+   "label": "QR Code Settings"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "qr_size",
+   "fieldtype": "Select",
+   "label": "QR Size",
+   "options": "Small\nMedium\nLarge"
+  },
+  {
+   "default": "M",
+   "fieldname": "error_correction",
+   "fieldtype": "Select",
+   "label": "Error Correction",
+   "options": "L\nM\nQ\nH"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "PNG",
+   "fieldname": "image_format",
+   "fieldtype": "Select",
+   "label": "Image Format",
+   "options": "PNG\nJPEG"
+  },
+  {
+   "default": "1",
+   "fieldname": "include_readable_text",
+   "fieldtype": "Check",
+   "label": "Include Readable Text",
+   "description": "Include human-readable text below QR code for identification"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-09 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QR Suite",
+ "name": "QR Template",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "template_name",
+ "track_changes": 1
+}

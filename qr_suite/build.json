@@ -1,0 +1,6 @@
+{
+    "js/qr_suite.min.js": [
+        "public/js/qr_injector.js",
+        "public/js/qr_suite_doctype.js"
+    ]
+}

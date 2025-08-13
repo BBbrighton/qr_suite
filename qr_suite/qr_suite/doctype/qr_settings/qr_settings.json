@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2025-01-15 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled_doctypes_section",
+  "auto_discover",
+  "last_sync",
+  "sync_now",
+  "column_break_4",
+  "total_doctypes",
+  "enabled_count",
+  "add_doctype_section",
+  "add_doctype_name",
+  "add_doctype_button",
+  "section_break_7",
+  "doctype_settings"
+ ],
+ "fields": [
+  {
+   "fieldname": "enabled_doctypes_section",
+   "fieldtype": "Section Break",
+   "label": "QR Settings"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_discover",
+   "fieldtype": "Check",
+   "label": "Auto Discover New DocTypes",
+   "description": "Automatically add new DocTypes to the list"
+  },
+  {
+   "fieldname": "last_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Sync",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sync_now",
+   "fieldtype": "Button",
+   "label": "Sync DocTypes Now",
+   "options": "sync_doctypes"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_doctypes",
+   "fieldtype": "Int",
+   "label": "Total DocTypes",
+   "read_only": 1
+  },
+  {
+   "fieldname": "enabled_count",
+   "fieldtype": "Int",
+   "label": "Enabled Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_doctype_section",
+   "fieldtype": "Section Break",
+   "label": "Add Specific DocType",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "add_doctype_name",
+   "fieldtype": "Link",
+   "label": "DocType to Add",
+   "options": "DocType",
+   "description": "Select a specific doctype to add to QR settings"
+  },
+  {
+   "fieldname": "add_doctype_button",
+   "fieldtype": "Button",
+   "label": "Add DocType",
+   "options": "add_selected_doctype"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "doctype_settings",
+   "fieldtype": "Table",
+   "label": "DocType Settings",
+   "options": "QR Settings Detail"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-01-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QR Suite",
+ "name": "QR Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QR Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "QR User",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

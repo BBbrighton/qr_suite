@@ -1,0 +1,28 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2025-01-09 15:00:00.000000",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "doctype": "Report",
+ "filters": [],
+ "is_standard": "Yes",
+ "modified": "2025-01-09 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QR Suite",
+ "name": "QR Scan Analytics",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \n    DATE(scan_timestamp) as \"Date:Date:120\",\n    target_doctype as \"DocType:Data:120\",\n    action_taken as \"Action:Data:150\",\n    COUNT(*) as \"Scan Count:Int:100\",\n    COUNT(DISTINCT scanned_by) as \"Unique Users:Int:120\",\n    scanned_by as \"User:Link/User:150\"\nFROM `tabQR Scan Log`\nGROUP BY DATE(scan_timestamp), target_doctype, action_taken, scanned_by\nORDER BY scan_timestamp DESC",
+ "ref_doctype": "QR Scan Log",
+ "report_name": "QR Scan Analytics",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "QR Manager"
+  }
+ ]
+}

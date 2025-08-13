@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "creation": "2025-01-09 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "qr_link",
+  "scan_timestamp",
+  "column_break_3",
+  "scanned_by",
+  "ip_address",
+  "details_section",
+  "action_taken",
+  "target_doctype",
+  "column_break_8",
+  "target_name",
+  "scan_result"
+ ],
+ "fields": [
+  {
+   "fieldname": "qr_link",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "QR Link",
+   "options": "QR Link",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scan_timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Scan Timestamp",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scanned_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Scanned By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Scan Details"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Action Taken"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Data",
+   "label": "Target DocType"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_name",
+   "fieldtype": "Data",
+   "label": "Target Name"
+  },
+  {
+   "default": "Success",
+   "fieldname": "scan_result",
+   "fieldtype": "Select",
+   "label": "Scan Result",
+   "options": "Success\nFailed\nExpired\nRevoked\nUnauthorized"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-09 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QR Suite",
+ "name": "QR Scan Log",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
